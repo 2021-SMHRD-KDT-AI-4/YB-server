@@ -116,7 +116,7 @@ public class AdpMain {
 	private static String getFileName(String str) {
 		
 		String file_name = "";
-		String file_path = "D:\\HTMLCSS\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\FindYourDog\\AdpPic\\";
+		String file_path = "D:\\HTMLCSS\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\YB\\AdpPic\\";
 				
 		try {
 			
