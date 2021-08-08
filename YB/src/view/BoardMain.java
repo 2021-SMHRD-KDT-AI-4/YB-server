@@ -117,7 +117,7 @@ public class BoardMain {
 	private static String getFileName(String str) {
 		
 		String file_name = "";
-		String file_path = "D:\\HTMLCSS\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\YB\\BoarPic\\";
+		String file_path = "D:\\HTMLCSS\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\YB\\BoardPic\\";
 				
 		try {
 			
