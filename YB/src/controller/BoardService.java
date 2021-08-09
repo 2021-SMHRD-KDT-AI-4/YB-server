@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +23,9 @@ public class BoardService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy斥 MM岿dd老 HH矫mm盒ss檬");
+		Date time = new Date();
+		String time2 = format2.format(time);
 		
 		BoardDAO dao = new BoardDAO();
 		ArrayList<BoardDTO> board = dao.select();
@@ -30,7 +35,7 @@ public class BoardService extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(gson.toJson(board));
 
-		System.out.println("立加");
+		System.out.println(time2+" === 立加");
 		
 	}
 

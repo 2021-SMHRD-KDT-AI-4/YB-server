@@ -34,6 +34,7 @@ public class BoardMain {
 		String urlstr = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?serviceKey=" + key 
 						+ "&bgnde="+today+"&endde="+today+"&upkind=417000&state=notice&pageNo=1&numOfRows=100";
 
+		System.out.println();
 			
 		try {
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -122,12 +123,17 @@ public class BoardMain {
 		try {
 			
 			// »Æ¿Â¿⁄
-			String extension = str.substring(str.length()-3, str.length());
+			String extension = "jpg";
 			
 			URL url = new URL(str);
 			
 			String[] list = str.split("\\/");
 			file_name = list[list.length-1];
+			
+			int nameLen = file_name.length();
+			if(file_name.substring(nameLen-7,nameLen-4).equals("[1]")) {
+				file_name = file_name.substring(0,nameLen-7)+".jpg";
+			}
 		    file_path += file_name;
 		    
 		    BufferedImage image = ImageIO.read(url);
