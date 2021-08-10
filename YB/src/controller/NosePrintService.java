@@ -32,17 +32,17 @@ public class NosePrintService extends HttpServlet {
 		CheckDTO check = null;
 		
 		
-		String dog_name = request.getParameter("dog_name");
-		String gender = request.getParameter("dog_gender");
-		String kind = request.getParameter("dog_kind");
 		String id = request.getParameter("id");
-		String picture = request.getParameter("dog_picture");
+		String dog_name = request.getParameter("dog_name");
+		String dog_nose_print = request.getParameter("dog_picture");
+		String dog_breeds = request.getParameter("dog_kind");
+		String dog_gender = request.getParameter("dog_gender");
 		
 		// 안스에서 보내온 데이터 디코딩
-		byte[] b_picture = Base64.decode(picture);
+		byte[] b_picture = Base64.decode(dog_nose_print);
 		// 이미지 저장경로
 		String savePath = "D:/HTMLCSS/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/YB/Nose_Print/";
-	    String filePath = savePath+id+dog_name+".jpg";
+	    String filePath = savePath+id+"_"+dog_name+".jpg";
 	    // DB에 저장될 파일 이름 id + dog_name
 	    String filename = id+dog_name+".jpg";
 	    if (id != null) {
@@ -54,11 +54,11 @@ public class NosePrintService extends HttpServlet {
 		
 		System.out.println(b_picture);
 		System.out.println(dog_name);
-		System.out.println(gender);
-		System.out.println(kind);
+		System.out.println(dog_gender);
+		System.out.println(dog_breeds);
 		System.out.println(id);
 //		System.out.println(picture);
-		NosePrintDTO dto = new NosePrintDTO(id, dog_name, gender, kind, filename);
+		NosePrintDTO dto = new NosePrintDTO(id, dog_name, dog_nose_print, dog_breeds, dog_gender);
 		NosePrintDAO dao = new NosePrintDAO();
 		int cnt = dao.insert(dto);
 		if (cnt > 0) {

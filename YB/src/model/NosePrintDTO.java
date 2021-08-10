@@ -4,37 +4,40 @@ public class NosePrintDTO {
 	private int nose_print_num;
 	private String id;
 	private String dog_name;
-	private String gender;
-	private String kind;
-	private String picture;
+	private String dog_nose_print;
+	private String dog_breeds;
+	private String dog_gender;
 	
-	
-	
-	
-	public NosePrintDTO(String id, String dog_name, String gender, String kind, String picture) {
-		super();
-		this.id = id;
-		this.dog_name = dog_name;
-		this.gender = gender;
-		this.kind = kind;
-		this.picture = picture;
-	}
-	public NosePrintDTO(int nose_print_num, String id, String dog_name, String gender, String kind, String picture) {
+	public NosePrintDTO(int nose_print_num, String id, String dog_name, String dog_nose_print, String dog_breeds,
+			String dog_gender) {
 		super();
 		this.nose_print_num = nose_print_num;
 		this.id = id;
 		this.dog_name = dog_name;
-		this.gender = gender;
-		this.kind = kind;
-		this.picture = picture;
+		this.dog_nose_print = dog_nose_print;
+		this.dog_breeds = dog_breeds;
+		this.dog_gender = dog_gender;
 	}
+	
+	
+	
+	public NosePrintDTO(String id, String dog_name, String dog_nose_print, String dog_breeds, String dog_gender) {
+		super();
+		this.id = id;
+		this.dog_name = dog_name;
+		this.dog_nose_print = dog_nose_print;
+		this.dog_breeds = dog_breeds;
+		this.dog_gender = dog_gender;
+	}
+
+
+
 	public int getNose_print_num() {
 		return nose_print_num;
 	}
 	public void setNose_print_num(int nose_print_num) {
 		this.nose_print_num = nose_print_num;
 	}
-
 	public String getId() {
 		return id;
 	}
@@ -47,23 +50,26 @@ public class NosePrintDTO {
 	public void setDog_name(String dog_name) {
 		this.dog_name = dog_name;
 	}
-	public String getGender() {
-		return gender;
+	public String getDog_nose_print() {
+		return dog_nose_print;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setDog_nose_print(String dog_nose_print) {
+		this.dog_nose_print = dog_nose_print;
 	}
-	public String getKind() {
-		return kind;
+	public String getDog_breeds() {
+		return dog_breeds;
 	}
-	public void setKind(String kind) {
-		this.kind = kind;
+	public void setDog_breeds(String dog_breeds) {
+		this.dog_breeds = dog_breeds;
 	}
-	public String getPicture() {
-		return picture;
+	public String getDog_gender() {
+		return dog_gender;
 	}
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setDog_gender(String dog_gender) {
+		this.dog_gender = dog_gender;
 	}
+
+	
+	
 	
 }

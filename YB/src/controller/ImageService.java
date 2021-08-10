@@ -19,6 +19,7 @@ public class ImageService extends HttpServlet {
 
 		
 		response.setContentType("image/jpg");
+		String folder = request.getParameter("folder");
 		String filename = request.getParameter("filename");
 		
 		// 1024바이트만큼 이미지를 불러들어와서 저장해 놓을 배열 생성
@@ -28,7 +29,7 @@ public class ImageService extends HttpServlet {
 		ServletOutputStream out = response.getOutputStream();
 		
 		// 이미지의 경로 가져오기
-		String imgPath = getServletContext().getRealPath("")+"BoardPic\\"+filename; // 현재 서블릿의 위치
+		String imgPath = getServletContext().getRealPath("")+folder+"\\"+filename; // 현재 서블릿의 위치
 		
 		
 		// inputStream을 이용하여 이미지를 읽어오기

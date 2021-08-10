@@ -60,13 +60,12 @@ public class NosePrintDAO {
 			
 			psmt.setString(1, dto.getId());
 			psmt.setString(2,dto.getDog_name());
-			psmt.setString(3, dto.getPicture());
-			psmt.setString(4, dto.getGender());
-			psmt.setString(5, dto.getKind());
+			psmt.setInt(3, dto.getNose_print_num());
+			psmt.setString(4, dto.getDog_breeds());
+			psmt.setString(5, dto.getDog_gender());
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();

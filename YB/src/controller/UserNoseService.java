@@ -26,7 +26,7 @@ public class UserNoseService extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("아파아파");
+		System.out.println("비문 조회");
 		String id = request.getParameter("id");
 		System.out.println("아이디 : "+id);
 		
