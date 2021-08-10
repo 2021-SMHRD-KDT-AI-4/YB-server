@@ -1,11 +1,11 @@
 package model;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AdpDAO {
 
@@ -90,4 +90,51 @@ public class AdpDAO {
 		      
 		   return cnt;
 	   }
+	   
+	   
+	   public ArrayList<AdpDTO> select(){
+		   
+		   ArrayList<AdpDTO> adp = new ArrayList<AdpDTO>();
+		   
+		   conn();
+		   
+		   try {
+			   String sql = "SELECT * FROM adoption";
+			   
+			   psmt = conn.prepareStatement(sql);
+
+			   rs = psmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   
+				   int adp_num = rs.getInt("adp_num"); 
+				   String adp_status = rs.getString("adp_status");
+				   String adp_picture = rs.getString("adp_picture");
+				   String adp_gender = rs.getString("adp_gender");
+				   int adp_age = rs.getInt("adp_age");
+				   String adp_color = rs.getString("adp_color");
+				   String adp_kind = rs.getString("adp_kind");
+				   float adp_weight = rs.getFloat("adp_weight");
+				   String adp_shelter = rs.getString("adp_shelter");
+				   String adp_addr = rs.getString("adp_addr");
+				   String adp_neuter = rs.getString("adp_neuter");
+				   String adp_tel = rs.getString("adp_tel");
+				   String adp_content = rs.getString("adp_content");
+			
+				   AdpDTO dto = new AdpDTO(adp_num, adp_status, adp_picture, adp_gender, adp_age, adp_color, 
+						   adp_kind, adp_weight, adp_shelter, adp_addr, adp_neuter, adp_tel, adp_content);
+					
+				   adp.add(dto);
+				}
+				
+		   }catch (SQLException e) {
+			   e.printStackTrace();
+		   } finally {
+		       close();
+		   }
+		      
+		   return adp;
+		   
+	   }
+	   
 }
