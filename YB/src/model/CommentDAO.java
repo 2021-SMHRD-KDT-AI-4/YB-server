@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CommentDAO {
 
@@ -67,5 +68,33 @@ public class CommentDAO {
 			close();
 		}
 		return cnt;
+	}
+
+	public ArrayList<CommentDTO> show(int board_num) {
+		ArrayList<CommentDTO> list = new ArrayList<CommentDTO>();
+		conn();
+		String sql = "select ID, COMMENTS from COMMENTS WHERE BOARD_NUM = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, board_num);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				String id = rs.getString(1);
+				String comments = rs.getString(2);
+				
+				CommentDTO dto = new CommentDTO(id, comments);
+				list.add(dto);
+				
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
 	}
 }

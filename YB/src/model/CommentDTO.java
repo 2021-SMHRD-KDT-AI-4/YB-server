@@ -8,6 +8,11 @@ public class CommentDTO {
 	
 	
 	
+	public CommentDTO(String id, String comments) {
+		super();
+		this.id = id;
+		this.comments = comments;
+	}
 	public CommentDTO(int board_num, String id, String comments) {
 		super();
 		this.board_num = board_num;
