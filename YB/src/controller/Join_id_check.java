@@ -28,7 +28,7 @@ public class Join_id_check extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		MemberDTO dto = new MemberDTO(join_id);
 		MemberDAO dao = new MemberDAO();
-		
+		 
 		boolean id_check = dao.idcheck(dto);
 		
 		if (id_check) {

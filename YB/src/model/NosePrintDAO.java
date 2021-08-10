@@ -54,7 +54,7 @@ public class NosePrintDAO {
 		conn();
 		int cnt =0;
 		String sql = "insert into NOSE_PRINT values(NOSE_PRINT_NOSE_PRINT_NUM_SEQ.NEXTVAL,?,?,?,?,?)";
-		try {
+		try { 
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, dto.getId());

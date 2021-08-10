@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 		}else {
 			System.out.println("로그인 정보없다");
 			check = new CheckDTO(false);
-		}
+		} 
 		Gson gson = new Gson();
 		
 		out.print(gson.toJson(info));

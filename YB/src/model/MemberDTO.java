@@ -17,7 +17,7 @@ public class MemberDTO {
 	public MemberDTO(String id, String pw) {
 		super();
 		this.id = id;
-		this.pw = pw;
+		this.pw = pw; 
 	}
 	public MemberDTO(String id, String pw, String name, int membercode, int tel, String address) {
 		super();

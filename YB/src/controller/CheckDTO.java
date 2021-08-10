@@ -14,7 +14,7 @@ public class CheckDTO {
 	public boolean isCheck() {
 		return isCheck;
 	}
-
+ 
 	public void setCheck(boolean isCheck) {
 		this.isCheck = isCheck;
 	}

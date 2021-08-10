@@ -29,7 +29,7 @@ public class BoardService extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print(gson.toJson(board));
-
+         
 		System.out.println("Á¢¼Ó");
 		
 	}

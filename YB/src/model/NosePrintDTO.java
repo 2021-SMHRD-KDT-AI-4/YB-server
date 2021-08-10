@@ -16,7 +16,7 @@ public class NosePrintDTO {
 		this.dog_name = dog_name;
 		this.gender = gender;
 		this.kind = kind;
-		this.picture = picture;
+		this.picture = picture; 
 	}
 	public String getId() {
 		return id;

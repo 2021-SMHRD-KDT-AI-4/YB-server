@@ -49,7 +49,7 @@ public class NosePrintService extends HttpServlet {
 	       writer.write(b_picture);
 	       writer.flush();
 	       writer.close();
-	    }
+	    } 
 		
 		System.out.println(b_picture);
 		System.out.println(dog_name);

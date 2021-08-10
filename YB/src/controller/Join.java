@@ -50,7 +50,7 @@ public class Join extends HttpServlet {
 		}else{
 			System.out.println("회원가입실패");
 			check = new CheckDTO(false);
-		}
+		} 
 		Gson gson = new Gson();
 		System.out.println(gson.toJson(check));
 		out.print(gson.toJson(check));
