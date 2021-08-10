@@ -75,6 +75,16 @@ public class BoardMain {
 						picture = getFileName(picture_raw);
 						
 						gender = getTagValue("sexCd",element);
+						
+						if(gender.equals("M")) {
+							gender = "¼öÄÆ";
+						}else if(gender.equals("F")) {
+							gender = "¾ÏÄÆ";
+						}else {
+							gender = "¾Ë¼ö¾øÀ½";
+						}
+						
+						
 						age_raw = getTagValue("age",element);
 						age = getSplitInt(age_raw);
 						color = getTagValue("colorCd",element);

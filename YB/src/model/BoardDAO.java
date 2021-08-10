@@ -107,7 +107,6 @@ public class BoardDAO {
 						   	+ "color, kind, NVL(missing_date,'NULL') AS missing_date, NVL(missing_time,'NULL') AS missing_time, "
 						   	+ "weight, notice, shelter, city, place, tel, content "
 						   	+ "FROM board";
-//						   	+ "FROM board WHERE ROWNUM <= 4";
 			   
 			   psmt = conn.prepareStatement(sql);
 

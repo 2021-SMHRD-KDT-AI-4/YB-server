@@ -32,7 +32,7 @@ public class AdpMain {
 		
 		String key = "Rl1g9693Oz75UWdCKpSsKZzfz0wqfrARsAic0d1kDdbDGEMVxnOXhs%2BLTXV4m5bp4Lh%2Bzv9FWU3I6dQJMcXCpw%3D%3D"; 
 		String urlstr = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?serviceKey=" + key 
-				     + "&bgnde="+today+"&endde="+today+"&upkind=417000&state=protect&pageNo=1&numOfRows=100";
+				     + "&bgnde="+"20210501"+"&endde="+today+"&upkind=417000&state=protect&pageNo=1&numOfRows=50";
 
 
 		try {
@@ -74,6 +74,15 @@ public class AdpMain {
 					adp_picture = getFileName(adp_picture_raw);
 					
 					adp_gender = getTagValue("sexCd", element);
+					
+					if(adp_gender.equals("M")) {
+						adp_gender = "수컷";
+					}else if(adp_gender.equals("F")) {
+						adp_gender = "암컷";
+					}else {
+						adp_gender = "알수없음";
+					}
+					
 					adp_color = getTagValue("colorCd", element);
 					
 					adp_kind_raw = getTagValue("kindCd", element);
@@ -85,6 +94,14 @@ public class AdpMain {
 					adp_shelter = getTagValue("careNm", element);
 					adp_addr = getTagValue("careAddr", element);
 					adp_neuter = getTagValue("neuterYn", element);
+					if(adp_neuter.equals("Y")) {
+						adp_neuter = "예";
+					}else if(adp_neuter.equals("N")) {
+						adp_neuter = "아니오";
+					}else {
+						adp_neuter = "알수없음";
+					}
+					
 					adp_tel = getTagValue("careTel", element);
 					adp_weight_raw = getTagValue("weight", element);
 					adp_weight = getSplitFloat(adp_weight_raw);
@@ -121,12 +138,17 @@ public class AdpMain {
 		try {
 			
 			// 확장자
-			String extension = str.substring(str.length()-3, str.length());
+			String extension = "jpg";
 			
 			URL url = new URL(str);
 			
 			String[] list = str.split("\\/");
 			file_name = list[list.length-1];
+			
+			int nameLen = file_name.length();
+			if(file_name.substring(nameLen-7,nameLen-4).equals("[1]")) {
+				file_name = file_name.substring(0,nameLen-7)+".jpg";
+			}
 		    file_path += file_name;
 		    
 		    BufferedImage image = ImageIO.read(url);
