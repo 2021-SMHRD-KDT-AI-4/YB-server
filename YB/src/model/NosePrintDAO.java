@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class NosePrintDAO {
 
@@ -73,5 +74,43 @@ public class NosePrintDAO {
 		
 		return cnt;
 	}
+
+	public ArrayList<NosePrintDTO> select(String id){
+		ArrayList<NosePrintDTO> nose_info = new ArrayList<NosePrintDTO>();
+		conn();
+		String sql = "select * from NOSE_PRINT where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				int n_num = rs.getInt(1);
+				String n_id  =  rs.getString(2);
+				String n_dog_name  =  rs.getString(3);
+				String n_dog_nose_print  =  rs.getString(4);
+				String n_dog_breeds  =  rs.getString(5);
+				String n_dog_gender  =  rs.getString(6);
+				
+				NosePrintDTO dto = new NosePrintDTO(n_num, n_id, n_dog_name, n_dog_nose_print, n_dog_breeds, n_dog_gender);
+				
+				nose_info.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return nose_info;
+	}
+
+
+	
+
+
+
+	
 	   
 }

@@ -1,6 +1,7 @@
 package model;
 
 public class NosePrintDTO {
+	private int nose_print_num;
 	private String id;
 	private String dog_name;
 	private String gender;
@@ -16,8 +17,24 @@ public class NosePrintDTO {
 		this.dog_name = dog_name;
 		this.gender = gender;
 		this.kind = kind;
-		this.picture = picture; 
+		this.picture = picture;
 	}
+	public NosePrintDTO(int nose_print_num, String id, String dog_name, String gender, String kind, String picture) {
+		super();
+		this.nose_print_num = nose_print_num;
+		this.id = id;
+		this.dog_name = dog_name;
+		this.gender = gender;
+		this.kind = kind;
+		this.picture = picture;
+	}
+	public int getNose_print_num() {
+		return nose_print_num;
+	}
+	public void setNose_print_num(int nose_print_num) {
+		this.nose_print_num = nose_print_num;
+	}
+
 	public String getId() {
 		return id;
 	}
