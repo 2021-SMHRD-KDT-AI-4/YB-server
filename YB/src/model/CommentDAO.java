@@ -73,7 +73,7 @@ public class CommentDAO {
 	public ArrayList<CommentDTO> show(int board_num) {
 		ArrayList<CommentDTO> list = new ArrayList<CommentDTO>();
 		conn();
-		String sql = "select ID, COMMENTS from COMMENTS WHERE BOARD_NUM = ?";
+		String sql = "select ID, COMMENTS from COMMENTS WHERE BOARD_NUM = ? ORDER BY COMMENTS_NUM DESC ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, board_num);
