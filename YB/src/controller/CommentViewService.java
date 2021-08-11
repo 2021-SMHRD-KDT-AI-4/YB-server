@@ -28,9 +28,11 @@ public class CommentViewService extends HttpServlet {
 	    PrintWriter out = response.getWriter();
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		System.out.println("게시글 번호 : " +" "+ board_num);
 		
 		CommentDAO dao = new CommentDAO();
 		ArrayList<CommentDTO> commentinfo = dao.show(board_num);
+		System.out.println("제발 나와라 : "+ gson.toJson(commentinfo));
 		out.print(gson.toJson(commentinfo));
 		
 	}
