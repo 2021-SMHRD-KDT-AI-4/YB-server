@@ -24,8 +24,8 @@ public class CommentViewService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Á¢¼Ó");
+		response.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
-	    response.setCharacterEncoding("UTF-8");
 	    PrintWriter out = response.getWriter();
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
