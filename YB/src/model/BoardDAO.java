@@ -220,6 +220,37 @@ public class BoardDAO {
 		      
 		   return board;
 	   }
+
+	public ArrayList<BoardDTO> pictureresult(String id) {
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		conn();
+		String sql = "SELECT picture, gender, kind" + 
+				"FROM BOARD" + 
+				"WHERE board_num IN (SELECT board2_num FROM matching_result WHERE id = ? )";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,id);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				String picture = rs.getString(1);
+				String gender = rs.getString(2);
+				String kind = rs.getString(3);
+				BoardDTO dto = new BoardDTO(picture, gender, kind);
+				
+				list.add(dto);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+	}
 	
 
 }

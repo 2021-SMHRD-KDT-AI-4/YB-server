@@ -24,6 +24,15 @@ public class BoardDTO {
 	
 	
 	
+	public BoardDTO(String picture, String gender, String kind) {
+		super();
+		this.picture = picture;
+		this.gender = gender;
+		this.kind = kind;
+	}
+
+
+
 	public BoardDTO(String id, int board_type, String picture, String gender, int age, String color, String kind,
 			float weight, String missing_date, String missing_time, int city, String place, String tel,
 			String content) {
