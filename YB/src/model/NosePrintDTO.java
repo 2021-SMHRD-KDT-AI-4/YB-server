@@ -8,6 +8,11 @@ public class NosePrintDTO {
 	private String dog_breeds;
 	private String dog_gender;
 	
+	public NosePrintDTO(String dog_nose_print) {
+		super();
+		this.dog_nose_print = dog_nose_print;
+	}
+
 	public NosePrintDTO(int nose_print_num, String id, String dog_name, String dog_nose_print, String dog_breeds,
 			String dog_gender) {
 		super();

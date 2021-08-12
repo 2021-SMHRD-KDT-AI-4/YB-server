@@ -188,7 +188,7 @@ public class BoardMain {
 	
 	private static String getSplitValue(String str) {
 		try {
-			String[] kindArray = str.split(" ");
+			String[] kindArray = str.split("] ");
 			
 			return kindArray[1];
 			

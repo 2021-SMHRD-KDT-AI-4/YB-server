@@ -177,10 +177,10 @@ public class BoardDAO {
 		   conn();
 		   
 		   try {
-			   String sql = "SELECT board_num, id, board_type, status, picture, gender, age, "
-						   	+ "color, kind, NVL(missing_date,'NULL') AS missing_date, NVL(missing_time,'NULL') AS missing_time, "
-						   	+ "weight, notice, shelter, city, place, tel, content "
-						   	+ "FROM board";
+			   String sql = "SELECT board_num, id, board_type, status, picture, gender, NVL(age,0) AS age, "
+					   	+ "color, kind, NVL(missing_date,'NULL') AS missing_date, NVL(missing_time,'NULL') AS missing_time,"
+					   	+ "NVL(weight,0) AS weight, NVL(notice,'NULL') AS notice, NVL(shelter,'NULL') AS shelter, city, place, tel, content "
+					   	+ "FROM board";
 			   
 			   psmt = conn.prepareStatement(sql);
 
