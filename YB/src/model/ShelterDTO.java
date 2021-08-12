@@ -7,6 +7,13 @@ public class ShelterDTO {
 	private float shelter_lat;
 	private float shelter_lng;
 	
+
+	
+	public ShelterDTO(String shelter_name, String shelter_addr) {
+		super();
+		this.shelter_name = shelter_name;
+		this.shelter_addr = shelter_addr;
+	}
 	public ShelterDTO(String shelter_name, String shelter_addr, float shelter_lat, float shelter_lng) {
 		super();
 		this.shelter_name = shelter_name;

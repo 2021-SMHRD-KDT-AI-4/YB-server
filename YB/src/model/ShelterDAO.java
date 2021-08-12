@@ -112,4 +112,31 @@ public class ShelterDAO {
 		   return list;
 		   
 	   }
+
+	public ArrayList<ShelterDTO> selectinfo(String sido, String gungu) {
+		ArrayList<ShelterDTO> list = new ArrayList<ShelterDTO>();
+		conn();
+		String sql = "select shelter_name, shelter_addr from shelter_info where shelter_addr like '%' ||?||'%'||?||'%'";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, sido);
+			psmt.setString(2, gungu);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				String shelter_name = rs.getString(1);
+				String shelter_addr = rs.getString(2);
+				ShelterDTO dto = new ShelterDTO(shelter_name, shelter_addr);
+				list.add(dto);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+	}
 }
