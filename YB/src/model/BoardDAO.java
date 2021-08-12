@@ -224,8 +224,8 @@ public class BoardDAO {
 	public ArrayList<BoardDTO> pictureresult(String id) {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		conn();
-		String sql = "SELECT picture, gender, kind" + 
-				"FROM BOARD" + 
+		String sql = "SELECT picture, gender, kind " + 
+				"FROM BOARD " + 
 				"WHERE board_num IN (SELECT board_num2 FROM matching_result WHERE id = ? )";
 		try {
 			psmt = conn.prepareStatement(sql);
