@@ -32,9 +32,12 @@ public class PictureResultShowService extends HttpServlet {
 		Gson gson = new Gson();
 	    PrintWriter out = response.getWriter();
 		String id = request.getParameter("id");
+		System.out.println("¾ÆÀÌµð : " + id);
 		
 		BoardDAO dao = new BoardDAO();
 		ArrayList<BoardDTO> list =dao.pictureresult(id);
+		System.out.println(gson.toJson(list));
+		out.print(gson.toJson(list));
 		
 	}
 
