@@ -251,6 +251,51 @@ public class BoardDAO {
 		
 		return list;
 	}
+
+	public int statusupdate(String id) {
+		int cnt = 0;
+		conn();
+		String sql = "UPDATE board " + 
+				"SET status = 1 " + 
+				"WHERE board_num IN (SELECT board_num1 FROM matching_result WHERE id = ? " + 
+				"UNION " + 
+				"SELECT board_num2 FROM matching_result WHERE id = ? )";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+		
+	}
+
+	
+	public int resultdelete(String id) {
+		int cnt = 0;
+		conn();
+		String sql = "delete from MATCHING_RESULT where id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		
+		return cnt;
+	}
 	
 
 }
