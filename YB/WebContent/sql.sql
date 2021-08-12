@@ -15,6 +15,11 @@ WHERE ID = (SELECT ID FROM NOSE_PRINT WHERE DOG_NOSE_PRINT = 'yeonji_1234.jpg');
 SELECT picture, gender, kind
 FROM BOARD
 WHERE board_num IN (SELECT board_num2 FROM matching_result WHERE id = 'yeonji' );
+
+SELECT picture, gender, kind
+FROM BOARD 
+			WHERE board_num IN (SELECT board_num2 FROM matching_result WHERE id = ? )
+				
 				
 SELECT board_num2 FROM matching_result WHERE id = 'yeonji';
 
