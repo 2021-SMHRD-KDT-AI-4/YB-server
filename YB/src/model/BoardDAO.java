@@ -295,7 +295,7 @@ public class BoardDAO {
 		
 		
 		return cnt;
-	}
+	}//
 	
 
 }

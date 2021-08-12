@@ -45,7 +45,7 @@ public class PictureControll extends HttpServlet {
 			check = new CheckDTO(false);
 		}
 		out.print(gson.toJson(check));
-		
+		//
 		
 		
 	}
