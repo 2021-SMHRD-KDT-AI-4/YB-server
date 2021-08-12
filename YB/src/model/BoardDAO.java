@@ -94,6 +94,80 @@ public class BoardDAO {
 		   return cnt;
 		      
 	   }
+	   public int Finsert(BoardDTO dto) {
+		   
+		   int cnt = 0;
+
+		   conn();
+		      
+		   try {
+			   
+			   String sql = "INSERT INTO board(board_num, id, board_type, status, picture, gender, age, "
+			   		+ "color, kind, weight,MISSING_DATE,MISSING_TIME, city, place, tel, content) "
+					   + "VALUES(BOARD_NUM_SEQ.nextval,?,?,0,?,?,?,?,?,?,?,?,?,?,?,?)";
+			   		
+			  
+		       psmt = conn.prepareStatement(sql);
+		         
+		       psmt.setString(1, dto.getId());
+		       psmt.setInt(2, dto.getBoard_type());
+		       psmt.setString(3, dto.getPicture());
+		       psmt.setString(4, dto.getGender());
+		       psmt.setInt(5, dto.getAge());
+		       psmt.setString(6, dto.getColor());
+		       psmt.setString(7, dto.getKind());
+		       psmt.setFloat(8, dto.getWeight());
+		       psmt.setString(9, dto.getMissing_date());
+		       psmt.setString(10, dto.getMissing_time());
+		       psmt.setInt(11, dto.getCity());
+		       psmt.setString(12, dto.getPlace());
+		       psmt.setString(13, dto.getTel());
+		       psmt.setString(14, dto.getContent());
+		       
+		       
+		       
+		       cnt = psmt.executeUpdate();
+		       
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+		   } finally {
+		       close();
+		   }
+		      
+		   return cnt;
+		      
+	   }
+	   
+	   public ArrayList<F_BoardDTO> Fselect(BoardDTO dto) {
+		   ArrayList<F_BoardDTO> pictureList = new ArrayList<F_BoardDTO>();
+		   F_BoardDTO fdto;
+		   conn();
+		   
+		   try {
+			   String sql = "SELECT picture FROM board where city=? and kind =? ";
+			   
+			   psmt = conn.prepareStatement(sql);
+			   psmt.setInt(1, dto.getCity());
+		       psmt.setString(2, dto.getKind());
+
+			   rs = psmt.executeQuery();
+			   
+			   while(rs.next()) {
+				
+					String picture = rs.getString("picture");
+					fdto = new F_BoardDTO(picture);
+					pictureList.add(fdto);
+				}
+				
+		   }catch (SQLException e) {
+			   e.printStackTrace();
+		   } finally {
+		       close();
+		   }
+		      
+		   return pictureList;
+		   
+	}
 	   
 	   
 	   public ArrayList<BoardDTO> select(){

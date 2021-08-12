@@ -22,6 +22,30 @@ public class BoardDTO {
 	private String tel;
 	private String content;
 	
+	
+	
+	public BoardDTO(String id, int board_type, String picture, String gender, int age, String color, String kind,
+			float weight, String missing_date, String missing_time, int city, String place, String tel,
+			String content) {
+		super();
+		this.id = id;
+		this.board_type = board_type;
+		this.picture = picture;
+		this.gender = gender;
+		this.age = age;
+		this.color = color;
+		this.kind = kind;
+		this.weight = weight;
+		this.missing_date = missing_date;
+		this.missing_time = missing_time;
+		this.city = city;
+		this.place = place;
+		this.tel = tel;
+		this.content = content;
+	}
+	
+
+
 	public BoardDTO(int board_num, String id, int board_type, int status, String picture, String gender, int age,
 			String color, String kind, float weight, String missing_date, String missing_time, String notice,
 			String shelter, int city, String place, String tel, String content) {
@@ -134,6 +158,39 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public int getBoard_type() {
+		return board_type;
+	}
+
+	public void setBoard_type(int board_type) {
+		this.board_type = board_type;
+	}
+
+	public String getMissing_date() {
+		return missing_date;
+	}
+
+	public void setMissing_date(String missing_date) {
+		this.missing_date = missing_date;
+	}
+
+	public String getMissing_time() {
+		return missing_time;
+	}
+
+	public void setMissing_time(String missing_time) {
+		this.missing_time = missing_time;
+	}
+	
 	
 
 
