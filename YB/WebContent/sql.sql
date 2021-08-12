@@ -12,6 +12,11 @@ SELECT NAME, TEL
 FROM MEMBER
 WHERE ID = (SELECT ID FROM NOSE_PRINT WHERE DOG_NOSE_PRINT = 'yeonji_1234.jpg');
 
+SELECT picture, gender, kind
+FROM BOARD
+WHERE board_num IN (SELECT board_num2 FROM matching_result WHERE id = 'yeonji' );
+				
+SELECT board_num2 FROM matching_result WHERE id = 'yeonji';
 
 SELECT board_num, id, board_type, status, picture, gender, NVL(age,0) AS age, 
 color, kind, NVL(missing_date,'NULL') AS missing_date, NVL(missing_time,'NULL') AS missing_time, 
