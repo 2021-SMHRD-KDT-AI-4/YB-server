@@ -35,6 +35,7 @@ public class ShelterInfoService extends HttpServlet {
 		ShelterDAO dao = new ShelterDAO();
 		ArrayList<ShelterDTO> list = dao.selectinfo(sido, gungu);
 		System.out.println(gson.toJson(list));
+		out.print(gson.toJson(list));
 		
 		
 	}
