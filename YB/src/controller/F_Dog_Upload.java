@@ -18,6 +18,7 @@ import com.google.gson.JsonParser;
 
 import model.BoardDAO;
 import model.BoardDTO;
+import model.F_BoardDAO;
 import model.F_BoardDTO;
 
 @WebServlet("/F_Dog_Upload")
@@ -36,6 +37,7 @@ public class F_Dog_Upload extends HttpServlet {
 		String city ="";
 		String kind = "";
 		BoardDAO dao = new BoardDAO();
+		F_BoardDAO fdao = new F_BoardDAO();
 		int picListsize = 0;
 		ArrayList<F_BoardDTO> picList = new ArrayList<F_BoardDTO>();
 		
@@ -70,18 +72,24 @@ public class F_Dog_Upload extends HttpServlet {
 			
 			if (cnt >0) {
 				System.out.println("등록성공");
-				picList = dao.Fselect(dto);
-				
 				
 			}else {
 				System.out.println("등록실패");
 			}
 			
+			if (board_type.equals("1")) {
+				picList = fdao.num1select(dto);
+				
+			}else if(board_type.equals("2")) {
+				picList = fdao.num2select(dto);
+			}
 			
 		}
 		System.out.println("@@@@@@@");
 		System.out.println(gson.toJson(picList));
+		
 		PrintWriter out = response.getWriter();
+		
 		out.print(gson.toJson(picList));
 		
 	}
