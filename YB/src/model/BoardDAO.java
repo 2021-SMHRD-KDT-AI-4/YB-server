@@ -297,6 +297,46 @@ public class BoardDAO {
 		
 		return cnt;
 	}//
+
+	public BoardDTO picturedetail(String filename) {
+		BoardDTO dto = null;
+		conn();
+		String sql = "select * from board where picture = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, filename);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				 int board_num = rs.getInt("board_num");
+				    String id = rs.getString("id");
+				    int board_type = rs.getInt("board_type");
+				    int status = rs.getInt("status");
+					String picture = rs.getString("picture");
+					String gender = rs.getString("gender");
+					int age = rs.getInt("age");
+					String color = rs.getString("color");
+					String kind = rs.getString("kind");
+					float weight = rs.getFloat("weight");
+					String missing_date = rs.getString("missing_date");
+					String missing_time = rs.getString("missing_time");
+					String notice = rs.getString("notice");
+					String shelter = rs.getString("shelter");
+					int city = rs.getInt("city");
+					String place = rs.getString("place");
+					String tel = rs.getString("tel");
+					String content = rs.getString("content");
+					
+					dto = new BoardDTO(board_num, id, board_type, status, picture, gender, age, color, kind, weight, missing_date, missing_time, notice, shelter, city, place, tel, content);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
 	
 
 }
