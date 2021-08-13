@@ -264,6 +264,7 @@ public class BoardDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
+			psmt.setString(2, id);
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
